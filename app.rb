@@ -6,8 +6,18 @@ class App < Sinatra::Base
     erb :index
   end
 
+  # post '/' do
+  #   text_from_user = params[:user_text]
+  #
+  #   # take data from params[user_text] (in tpost '/' do route), feed it into new inst. of TextAnalyzer class
+  #   @analyzed_text = TextAnalyzer.new(text_from_user)
+  #
+  #   erb :results
+  # end
+
+  # replace above post w/ this post
   post '/' do
-    text_from_user = params[:user_text]
+    @analyzed_text = TextAnalyzer.new(params[:user_text])
 
     erb :results
   end
